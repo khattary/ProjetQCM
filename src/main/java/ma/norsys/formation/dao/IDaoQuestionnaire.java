@@ -1,7 +1,7 @@
 package ma.norsys.formation.dao;
+
 import ma.norsys.formation.entities.Questionnaire;
 import ma.norsys.formation.entities.Subscriber;
-
 
 public interface IDaoQuestionnaire {
 

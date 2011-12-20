@@ -1,5 +1,4 @@
 package ma.norsys.formation.dao;
-import static org.junit.Assert.assertNotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,26 +9,19 @@ import ma.norsys.formation.entities.Response;
 import ma.norsys.formation.entities.Topic;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-@ContextConfiguration(locations={"classpath://WEB-INF/spring-servlet.xml","classpath://WEB-INF/spring-servlet.xml"})
-@RunWith( SpringJUnit4ClassRunner.class)
+
+@ContextConfiguration(locations = { "classpath:spring-test-servlet.xml" })
+@RunWith(SpringJUnit4ClassRunner.class)
 public class QuestionnaireDaoImplTest {
 	@Autowired
 	IDaoQuestionnaire daoQuestionnaire;
-//	IDaoTopic daoTopic;
-
-	@Before
-	public void init() {
-//	daoQuestionnaire = new DaoQuestionnaireImpl();
-//		daoTopic = new DaoTopicImpl();
-//		assertNotNull(daoQuestionnaire);
-//		assertNotNull(daoTopic);
-	}
+	@Autowired
+	IDaoTopic daoTopic;
 
 	/**
 	 * Etant donné un questionnaire dont on connait l'id, si on recherche ce
@@ -42,18 +34,21 @@ public class QuestionnaireDaoImplTest {
 	@Test
 	public void testFindQuestionnaire() throws Exception {
 		createQuestionnaire();
-		Questionnaire questionnaire = daoQuestionnaire.findQuetinnaireById(2);
+		Questionnaire questionnaire = daoQuestionnaire.findQuetinnaireById(1L);
 		Assert.assertNotNull(questionnaire);
-		Assert.assertEquals(1, questionnaire.getIdQuestionnaire());
+		Assert.assertEquals(1L, questionnaire.getIdQuestionnaire());
 
 	}
-/**
- * crée un questionnaire pour le test
- */
+
+	/**
+	 * crée un questionnaire pour le test
+	 */
 	private void createQuestionnaire() {
 
 		Questionnaire questionnaire = new Questionnaire();
+		questionnaire.setIdQuestionnaire(1L);
 		Topic topic = new Topic();
+		topic.setIdTopic(1L);
 		topic.setLibelle("JAVA");
 
 		Response res1 = new Response(1, "Compilte et Interprete", true);
@@ -68,7 +63,7 @@ public class QuestionnaireDaoImplTest {
 		List<Question> lesQestions = new ArrayList<Question>();
 		lesQestions.add(qte);
 		topic.setLesQuestions(lesQestions);
-//		daoTopic.addTopic(topic);
+		daoTopic.addTopic(topic);
 		questionnaire.setTopic(topic);
 		daoQuestionnaire.addQuestionnaire(questionnaire);
 

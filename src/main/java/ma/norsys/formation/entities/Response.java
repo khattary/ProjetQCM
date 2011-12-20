@@ -20,7 +20,7 @@ public class Response {
 	@Column(name = "IS_CORRECT")
 	private boolean isCorrect;
 	
-	public Response(int idR, String libelle, boolean isCorrect) {
+	public Response(long idR, String libelle, boolean isCorrect) {
 		this.idR = idR;
 		this.libelle = libelle;
 		this.isCorrect = isCorrect;

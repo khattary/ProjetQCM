@@ -2,6 +2,7 @@ package ma.norsys.formation.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,7 +12,8 @@ public class User {
 	
 	@Id
 	@Column(name = "USER_ID")
-	private int idUser;
+	private long idUser;
+	
 	private String firstName;
 	private String lastName;
 	private String email;
@@ -20,10 +22,10 @@ public class User {
 	public User() {
 
 	}
-	public int getIdUser() {
+	public long getIdUser() {
 		return idUser;
 	}
-	public void setIdUser(int idUser) {
+	public void setIdUser(long idUser) {
 		this.idUser = idUser;
 	}
 	public String getFirstName() {

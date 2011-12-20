@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -30,7 +31,7 @@ public class Questionnaire {
 	@ManyToMany
     private Collection<Subscriber> subscribers;
 	
-	public Questionnaire(int idQuestionnaire, Topic topic) {
+	public Questionnaire(long idQuestionnaire, Topic topic) {
 		this.idQuestionnaire = idQuestionnaire;
 		this.topic = topic;
 	}

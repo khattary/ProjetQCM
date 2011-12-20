@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -28,7 +29,7 @@ public class Question {
 	@OneToMany(cascade= CascadeType.ALL)
 	private List<Response> lesReponses;
 
-	public Question(int idQuestion, String libelle, List<Response> lesReponses) {
+	public Question(long idQuestion, String libelle, List<Response> lesReponses) {
 		this.idQuestion = idQuestion;
 		this.libelle = libelle;
 		this.lesReponses = lesReponses;
