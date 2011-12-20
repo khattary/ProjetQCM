@@ -15,6 +15,16 @@ public class ServiceQuestionnaireImpl implements IServiceQuestionnaire {
     @Autowired
 	IDaoQuestionnaire daoQuestionnaire;
 	
+	public IDaoQuestionnaire getDaoQuestionnaire() {
+		return daoQuestionnaire;
+	}
+
+
+	public void setDaoQuestionnaire(IDaoQuestionnaire daoQuestionnaire) {
+		this.daoQuestionnaire = daoQuestionnaire;
+	}
+
+
 	public ServiceQuestionnaireImpl() {
 	}
 	
