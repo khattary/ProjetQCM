@@ -2,6 +2,7 @@ package ma.norsys.formation.entities;
 
 import java.util.Collection;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,7 +29,7 @@ public class Questionnaire {
 	@ManyToOne
 	private User user;
 	
-	@ManyToMany
+	@ManyToMany(cascade= CascadeType.ALL)
     private Collection<Subscriber> subscribers;
 	
 	public Questionnaire(long idQuestionnaire, Topic topic) {
